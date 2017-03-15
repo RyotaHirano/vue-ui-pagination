@@ -21,7 +21,15 @@ const store = new Vuex.Store({
         src: '/static/img/carousel/image_03.jpg',
         alt: '画像３'
       }
-    ]
+    ],
+    currentIdx: 0,
+    nextIdx: 1,
+    prevIdx: null,
+    touchX: 0,
+    moveX: 0,
+    isDrag: false,
+    isAnimatePrev: false,
+    isAnimateNext: false
   }
 });
 

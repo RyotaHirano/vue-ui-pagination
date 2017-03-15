@@ -1,6 +1,9 @@
 <template>
   <div id="app">
-    <carousel-view></carousel-view>
+    <section class="section">
+      <h1>Vue Carousel</h1>
+      <carousel-view></carousel-view>
+    </section>
   </div>
 </template>
 

@@ -1,10 +1,14 @@
 <template>
   <div class="carousel-wrapper">
-    <carousel-item
-      v-for="(image, key) in returnStoreImages"
-      :image="image"
-      :key="key"
-    ></carousel-item>
+    <div class="carousel-inner">
+      <carousel-item
+        :images="returnStoreImages"
+        :totalImageNum="getTotalImages"
+      ></carousel-item>
+    </div>
+    <div class="carousel-pager">
+
+    </div>
   </div>
 </template>
 
@@ -14,8 +18,11 @@
   export default {
     name: 'carouselView',
     computed: {
-      returnStoreImages() {
+      returnStoreImages: function() {
         return this.$store.state.images
+      },
+      getTotalImages: function() {
+        return this.$store.state.prevIdx !== null ? this.$store.state.prevIdx : this.$store.state.images.length - 1
       }
     },
     components: {
