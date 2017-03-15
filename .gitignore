@@ -105,6 +105,8 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+.idea
+
 
 ### https://raw.github.com/github/gitignore/a105d25dcf35cc565e0ef572a6e4eec3c29c955b/Global/Dreamweaver.gitignore
 
