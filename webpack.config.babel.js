@@ -1,6 +1,7 @@
 import path from 'path';
 import webpack from 'webpack';
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 import { resolve } from 'path'
 const rootResolve = pathname => resolve(__dirname, pathname);
 
@@ -24,6 +25,9 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
       template: `${rootResolve('src/html/index.pug')}`,
+    }),
+    new ExtractTextPlugin({
+      filename: 'assets/css/style.css'
     })
   ],
   module: {
@@ -42,6 +46,16 @@ module.exports = {
         test: /\.js$/,
         exclude: /node_modules|vue\/dist|vue-router\/|vue-loader\/|vue-hot-reload-api\//,
         loader: 'babel-loader'
+      },
+      {
+        test: /\.(scss|sass)$/,
+        loader: ExtractTextPlugin.extract({
+          fallbackLoader: "style-loader",
+          use: [
+            'css-loader',
+            'postcss-loader'
+          ]
+        })
       }
     ]
   },

@@ -1,8 +1,8 @@
 <template>
   <div class="carousel-wrapper">
     <carousel-item
-      v-for="(item, key) in returnStoreItems"
-      :item="item"
+      v-for="(image, key) in returnStoreImages"
+      :image="image"
       :key="key"
     ></carousel-item>
   </div>
@@ -14,8 +14,8 @@
   export default {
     name: 'carouselView',
     computed: {
-      returnStoreItems() {
-        return this.$store.state.items
+      returnStoreImages() {
+        return this.$store.state.images
       }
     },
     components: {

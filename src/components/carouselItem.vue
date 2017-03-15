@@ -1,6 +1,9 @@
 <template>
   <div class="carousel-item">
-    {{item.id}}
+    <img
+      :src="image.src"
+      :alt="image.alt"
+    >
   </div>
 </template>
 
@@ -8,7 +11,7 @@
   export default {
     name: 'carouselItem',
     props: {
-      item: Object
+      image: Object
     }
   }
 </script>
