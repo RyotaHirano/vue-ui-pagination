@@ -7,9 +7,7 @@
       ></carousel-item>
     </div>
     <div class="carousel-pager">
-      <carousel-pager
-        :images="returnStoreImages"
-      >
+      <carousel-pager>
       </carousel-pager>
     </div>
   </div>

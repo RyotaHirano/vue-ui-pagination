@@ -80,15 +80,37 @@ body {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  align-items: center;
 }
 
 .pager-item {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
-  background-color: #333;
+  display: block;
   margin: 0 10px;
-  cursor: pointer;
-  font-size: 0px;
-  text-indent: -999px;
+  .pager-indicator {
+    width: 12px;
+    height: 12px;
+    display: block;
+    border-radius: 50%;
+    background-color: #dedede;
+    transform-origin: center;
+    transition: transform .1s linear;
+    cursor: pointer;
+    font-size: 0px;
+    text-indent: -999px;
+
+    &.is-active {
+      background-color: #65baf9;
+    }
+
+    &.is-small {
+      transform: scale(0.8);
+    }
+
+    &.is-small--last {
+      transform: scale(0.6);
+    }
+  }
+
 }

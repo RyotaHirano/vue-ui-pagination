@@ -1,9 +1,10 @@
 <template>
   <li class="pager-item"
-    :class="classObjectPagerItem"
-    @click="selectImage(image.id)"
   >
-    <span>{{image.id}}</span>
+    <div
+      class="pager-indicator"
+      :class="classObjectPagerItem"
+    >{{image.id}}</div>
   </li>
 </template>
 
@@ -16,7 +17,9 @@
     computed: {
       classObjectPagerItem: function() {
         return {
-          'is-active': this.image.id === this.$store.state.currentIdx + 1
+          'is-active': this.image.id === this.$store.state.currentIdx + 1,
+          'is-small': this.image.id !== this.$store.state.currentIdx + 1 && (this.image.id >= this.$store.state.currentIdx + 4 || this.$store.state.currentIdx - this.image.id >= 2 ),
+          'is-small--last': this.image.id !== this.$store.state.currentIdx + 1 && ( this.image.id >= this.$store.state.currentIdx + 5 || this.$store.state.currentIdx - this.image.id >= 3 )
         }
       }
     },

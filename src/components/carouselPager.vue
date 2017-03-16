@@ -1,7 +1,7 @@
 <template>
   <ul class="pager-wrapper">
     <carousel-pager-item
-      v-for="(image, key) in images"
+      v-for="(image, key) in returnStoreImages"
       :image="image"
       :key="key"
     >
@@ -14,12 +14,20 @@
 
   export default {
     name: 'carousel-pager',
-    props: {
-      images: Array
-    },
     computed: {
       returnStoreImages: function() {
-        return this.$store.state.images
+        if(this.$store.state.images.length > 5) {
+          if(this.$store.state.images.length > this.$store.state.currentIdx + 5) {
+            if(this.$store.state.currentIdx) {
+              return this.$store.state.images.slice(this.$store.state.currentIdx, this.$store.state.currentIdx + 5).concat()
+            }
+            return this.$store.state.images.slice(this.$store.state.currentIdx, this.$store.state.currentIdx + 5).concat()
+          } else {
+            return this.$store.state.images.slice(this.$store.state.images.length - 5, this.$store.state.images.length).concat()
+          }
+        } else {
+          return this.$store.state.images.concat()
+        }
       },
     },
     components: {
