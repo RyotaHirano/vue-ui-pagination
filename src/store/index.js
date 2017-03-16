@@ -32,7 +32,7 @@ const store = new Vuex.Store({
     isAnimateNext: false
   },
   mutations: {
-    updatecurrentIdx (state) {
+    updateCurrentIdx (state) {
       if(state.isAnimatePrev) {
         state.currentIdx = state.prevIdx === null ? state.images.length - 1 : state.prevIdx;
       } else if (state.isAnimateNext) {

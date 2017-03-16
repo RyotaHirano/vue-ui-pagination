@@ -89,7 +89,7 @@
         this.$store.commit('updateIsDrag', false)
       },
       setCurrentIdx: function() {
-        this.$store.commit('updatecurrentIdx')
+        this.$store.commit('updateCurrentIdx')
         this.$store.commit('resetIsAnimatePrev')
         this.$store.commit('resetIsAnimateNext')
         this.$store.commit('updatePrevIdx')
