@@ -1,6 +1,6 @@
 <template>
   <div class="carousel-inner"
-    v-bind:class="{
+    :class="{
       'animate-prev': this.$store.state.isAnimatePrev,
       'animate-next': this.$store.state.isAnimateNext
     }"
@@ -59,45 +59,41 @@
       },
       startDrag: function(e) {
         e.preventDefault();
-        if (event.touches) {
-          this.$store.state.touchX = e.touches[0].clientX;
-          this.$store.state.moveX = e.touches[0].clientX;
+        if (e.touches) {
+          this.$store.commit('updateTouchX', e.touches[0].clientX)
+          this.$store.commit('updateMoveX', e.touches[0].clientX)
         } else {
-          this.$store.state.touchX = e.clientX;
-          this.$store.state.moveX = e.clientX;
+          this.$store.commit('updateTouchX', e.clientX)
+          this.$store.commit('updateMoveX', e.clientX)
         }
-        this.$store.state.isDrag = true;
+        this.$store.commit('updateIsDrag', true)
       },
       dragMove: function(e) {
         e.preventDefault();
         if(this.$store.state.isDrag) {
           if (e.touches) {
-            this.$store.state.moveX = e.touches[0].clientX;
+            this.$store.commit('updateMoveX', e.touches[0].clientX)
           } else {
-            this.$store.state.moveX = e.clientX;
+            this.$store.commit('updateMoveX', e.clientX)
           }
         }
       },
       finishDrag: function() {
         if (this.$store.state.moveX - this.$store.state.touchX > 0) {
-          this.$store.state.isAnimatePrev = true;
+          this.$store.commit('setIsAnimatePrev', true)
         } else if (this.$store.state.moveX - this.$store.state.touchX < 0) {
-          this.$store.state.isAnimateNext = true;
+          this.$store.commit('setIsAnimateNext', true)
         }
-        this.$store.state.touchX = 0;
-        this.$store.state.moveX = 0;
-        this.$store.state.isDrag = false;
+        this.$store.commit('updateTouchX', 0)
+        this.$store.commit('updateMoveX', 0)
+        this.$store.commit('updateIsDrag', false)
       },
       setCurrentIdx: function() {
-        if (this.$store.state.isAnimatePrev) {
-          this.$store.state.currentIdx = this.prevNum;
-          this.$store.state.isAnimatePrev = false;
-        } else if (this.$store.state.isAnimateNext) {
-          this.$store.state.currentIdx = this.$store.state.nextIdx;
-          this.$store.state.isAnimateNext = false;
-        }
-        this.$store.state.prevIdx = (this.$store.state.currentIdx === 0) ? this.$store.state.images.length - 1 : this.$store.state.currentIdx - 1;
-        this.$store.state.nextIdx = (this.$store.state.currentIdx === this.$store.state.images.length - 1) ? 0 : this.$store.state.currentIdx + 1;
+        this.$store.commit('updatecurrentIdx')
+        this.$store.commit('resetIsAnimatePrev')
+        this.$store.commit('resetIsAnimateNext')
+        this.$store.commit('updatePrevIdx')
+        this.$store.commit('updateNextIdx')
       }
     }
   }

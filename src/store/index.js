@@ -30,6 +30,46 @@ const store = new Vuex.Store({
     isDrag: false,
     isAnimatePrev: false,
     isAnimateNext: false
+  },
+  mutations: {
+    updatecurrentIdx (state) {
+      if(state.isAnimatePrev) {
+        state.currentIdx = state.prevIdx === null ? state.images.length - 1 : state.prevIdx;
+      } else if (state.isAnimateNext) {
+        state.currentIdx = state.nextIdx;
+      }
+    },
+    updatePrevIdx (state) {
+      state.prevIdx = (state.currentIdx === 0) ? state.images.length - 1 : state.currentIdx - 1;
+    },
+    updateNextIdx (state) {
+      state.nextIdx = (state.currentIdx === state.images.length - 1) ? 0 : state.currentIdx + 1;
+    },
+    setIsAnimatePrev (state, TorF) {
+      state.isAnimatePrev = TorF
+    },
+    setIsAnimateNext (state, TorF) {
+      state.isAnimateNext = TorF
+    },
+    resetIsAnimatePrev (state) {
+      if(state.isAnimatePrev) {
+        state.isAnimatePrev = !state.isAnimatePrev;
+      }
+    },
+    resetIsAnimateNext (state) {
+      if(state.isAnimateNext) {
+        state.isAnimateNext = !state.isAnimateNext;
+      }
+    },
+    updateTouchX (state, value) {
+      state.touchX = value
+    },
+    updateMoveX (state, value) {
+      state.moveX = value
+    },
+    updateIsDrag (state, TorF) {
+      state.isDrag = TorF
+    },
   }
 });
 
