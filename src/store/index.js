@@ -45,6 +45,9 @@ const store = new Vuex.Store({
     updateNextIdx (state) {
       state.nextIdx = (state.currentIdx === state.images.length - 1) ? 0 : state.currentIdx + 1;
     },
+    setCurrentIdx (state, id) {
+      state.currentIdx = id - 1
+    },
     setIsAnimatePrev (state, TorF) {
       state.isAnimatePrev = TorF
     },

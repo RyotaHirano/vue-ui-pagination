@@ -1,9 +1,6 @@
 <template>
   <div class="carousel-inner"
-    :class="{
-      'animate-prev': this.$store.state.isAnimatePrev,
-      'animate-next': this.$store.state.isAnimateNext
-    }"
+    :class="classObjectAnimation"
     :style="{ transform: getMoveX }"
     @mousedown="startDrag"
     @mousemove="dragMove"
@@ -43,6 +40,12 @@
       totalImageNum: Number
     },
     computed: {
+      classObjectAnimation: function () {
+        return {
+          'animate-prev' : this.$store.state.isAnimatePrev,
+          'animate-next' : this.$store.state.isAnimateNext
+        }
+      },
       getMoveX: function() {
         return this.$store.state.isDrag ? `translateX(${this.$store.state.moveX - this.$store.state.touchX}px)` : ""
       }

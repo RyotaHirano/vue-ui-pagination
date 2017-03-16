@@ -7,13 +7,17 @@
       ></carousel-item>
     </div>
     <div class="carousel-pager">
-
+      <carousel-pager
+        :images="returnStoreImages"
+      >
+      </carousel-pager>
     </div>
   </div>
 </template>
 
 <script>
   import carouselItem from './carouselItem'
+  import carouselPager from './carouselPager'
 
   export default {
     name: 'carouselView',
@@ -26,7 +30,8 @@
       }
     },
     components: {
-      carouselItem
+      carouselItem,
+      carouselPager
     }
   }
 </script>
