@@ -35,6 +35,11 @@ const store = new Vuex.Store({
         id: 6,
         src: '/static/img/carousel/image_06.jpg',
         alt: '画像６'
+      },
+      {
+        id: 7,
+        src: '/static/img/carousel/image_03.jpg',
+        alt: '画像7'
       }
     ],
     currentIdx: 0,
