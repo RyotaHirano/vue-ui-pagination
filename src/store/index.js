@@ -38,8 +38,33 @@ const store = new Vuex.Store({
       },
       {
         id: 7,
-        src: '/static/img/carousel/image_03.jpg',
+        src: '/static/img/carousel/image_01.jpg',
         alt: '画像7'
+      },
+      {
+        id: 8,
+        src: '/static/img/carousel/image_02.jpg',
+        alt: '画像8'
+      },
+      {
+        id: 9,
+        src: '/static/img/carousel/image_03.jpg',
+        alt: '画像9'
+      },
+      {
+        id: 10,
+        src: '/static/img/carousel/image_04.jpg',
+        alt: '画像10'
+      },
+      {
+        id: 11,
+        src: '/static/img/carousel/image_05.jpg',
+        alt: '画像11'
+      },
+      {
+        id: 12,
+        src: '/static/img/carousel/image_06.jpg',
+        alt: '画像12'
       }
     ],
     currentIdx: 0,

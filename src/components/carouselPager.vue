@@ -47,11 +47,17 @@
         }
       },
       pagerTranslate: function() {
-        if (this.$store.state.currentIdx >= 3) {
-          return 'translate3d(-200%, 0, 0)'
+        let translateX = '0';
+        console.log(this.$store.state.currentIdx + 3);
+        console.log(this.$store.state.images.length);
+        if (this.$store.state.currentIdx + 3 <= this.$store.state.images.length ) {
+          translateX = `-${(this.$store.state.images.length - 3) * 32}px`;
+        } else if (this.$store.state.currentIdx >= 3) {
+          translateX = `-${(this.$store.state.currentIdx - 3) * 32}px`;
         } else {
-          return 'translate3d(0, 0, 0)'
+          translateX = '0'
         }
+        return `translate3d(${translateX}, 0, 0)`
       }
     },
     components: {
