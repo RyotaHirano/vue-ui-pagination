@@ -74,7 +74,8 @@ const store = new Vuex.Store({
     moveX: 0,
     isDrag: false,
     isAnimatePrev: false,
-    isAnimateNext: false
+    isAnimateNext: false,
+    paginationDispNum: 6
   },
   mutations: {
     updateCurrentIdx (state) {

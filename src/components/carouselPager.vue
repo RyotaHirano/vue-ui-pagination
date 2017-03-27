@@ -14,7 +14,6 @@
 
 <script>
   import carouselPagerItem from './carouselPagerItem'
-  const paginationDispNum = 6;
   const paginationTranslateStart = 3;
 
   export default {
@@ -26,7 +25,7 @@
       pagerTranslate: function() {
         let translateX = '0';
         if (this.$store.state.currentIdx + paginationTranslateStart >= this.$store.state.images.length ) {
-          translateX = `-${(this.$store.state.images.length - paginationDispNum) * 32}px`;
+          translateX = `-${(this.$store.state.images.length - this.$store.state.paginationDispNum) * 32}px`;
         } else if (this.$store.state.currentIdx >= paginationTranslateStart) {
           translateX = `-${(this.$store.state.currentIdx - paginationTranslateStart) * 32}px`;
         } else {
