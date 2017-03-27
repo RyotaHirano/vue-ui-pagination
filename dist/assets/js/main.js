@@ -59,7 +59,7 @@
 /******/ 	
 /******/ 	
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "c234cdcaa5f682dc9645"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9f39e6c4331902538d14"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotMainModule = true; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
@@ -10094,7 +10094,8 @@ var store = new _vuex2.default.Store({
     moveX: 0,
     isDrag: false,
     isAnimatePrev: false,
-    isAnimateNext: false
+    isAnimateNext: false,
+    paginationDispNum: 6
   },
   mutations: {
     updateCurrentIdx: function updateCurrentIdx(state) {
@@ -10336,45 +10337,33 @@ var _carouselPagerItem2 = _interopRequireDefault(_carouselPagerItem);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+var paginationTranslateStart = 3; //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
 exports.default = {
   name: 'carousel-pager',
   computed: {
     returnStoreImages: function returnStoreImages() {
-      if (this.$store.state.images.length > 5) {
-        //          if(this.$store.state.currentIdx === 0) {
-        //            // 一つ目切替時
-        //            console.log('a');
-        //            return this.$store.state.images.slice(this.$store.state.currentIdx, this.$store.state.currentIdx + 5).concat()
-        //          } else if (this.$store.state.images.length - 1 === this.$store.state.currentIdx) {
-        //            // 最後
-        //            console.log('e');
-        //            return this.$store.state.images.slice(this.$store.state.images.length - 5, this.$store.state.images.length + 1).concat()
-        //          } else if (this.$store.state.images.length - 2 === this.$store.state.currentIdx) {
-        //            // 最後から一つ前
-        //            console.log('d');
-        //            return this.$store.state.images.slice(this.$store.state.currentIdx - 4, this.$store.state.currentIdx + 2).concat()
-        //          } else if (this.$store.state.currentIdx >= 3) {
-        //            // 最初から3つ目以降
-        //            console.log('c');
-        //            return this.$store.state.images.slice(this.$store.state.currentIdx - 3, this.$store.state.currentIdx + 3).concat()
-        //          } else {
-        //            // 通常
-        //            console.log('b');
-        //            return this.$store.state.images.slice(0, 5).concat()
-        //          }
-        return this.$store.state.images.concat();
-      } else {
-        return this.$store.state.images.concat();
-      }
+      return this.$store.state.images.concat();
     },
     pagerTranslate: function pagerTranslate() {
       var translateX = '0';
-      console.log(this.$store.state.currentIdx + 3);
-      console.log(this.$store.state.images.length);
-      if (this.$store.state.currentIdx + 3 >= this.$store.state.images.length) {
-        translateX = '-' + (this.$store.state.images.length - 6) * 32 + 'px';
-      } else if (this.$store.state.currentIdx >= 3) {
-        translateX = '-' + (this.$store.state.currentIdx - 3) * 32 + 'px';
+      if (this.$store.state.currentIdx + paginationTranslateStart >= this.$store.state.images.length) {
+        translateX = '-' + (this.$store.state.images.length - this.$store.state.paginationDispNum) * 32 + 'px';
+      } else if (this.$store.state.currentIdx >= paginationTranslateStart) {
+        translateX = '-' + (this.$store.state.currentIdx - paginationTranslateStart) * 32 + 'px';
       } else {
         translateX = '0';
       }
@@ -10384,20 +10373,7 @@ exports.default = {
   components: {
     carouselPagerItem: _carouselPagerItem2.default
   }
-}; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
+};
 
 /***/ }),
 /* 8 */
@@ -10426,11 +10402,17 @@ exports.default = {
   },
   computed: {
     classObjectPagerItem: function classObjectPagerItem() {
-      return {
-        'is-active': this.image.id === this.$store.state.currentIdx + 1,
-        'is-small': this.image.id !== this.$store.state.currentIdx + 1 && (this.image.id >= this.$store.state.currentIdx + 3 || this.$store.state.currentIdx - this.image.id >= 1),
-        'is-small--last': this.image.id !== this.$store.state.currentIdx + 1 && (this.image.id >= this.$store.state.currentIdx + 4 || this.$store.state.currentIdx - this.image.id >= 2)
-      };
+      if (this.$store.state.images.length > this.$store.state.paginationDispNum) {
+        return {
+          'is-active': this.image.id === this.$store.state.currentIdx + 1,
+          'is-small': this.image.id !== this.$store.state.currentIdx + 1 && (this.image.id >= this.$store.state.currentIdx + 3 || this.$store.state.currentIdx - this.image.id >= 1),
+          'is-small--last': this.image.id !== this.$store.state.currentIdx + 1 && (this.image.id >= this.$store.state.currentIdx + 4 || this.$store.state.currentIdx - this.image.id >= 2)
+        };
+      } else {
+        return {
+          'is-active': this.image.id === this.$store.state.currentIdx + 1
+        };
+      }
     }
   },
   methods: {

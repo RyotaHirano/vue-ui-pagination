@@ -87,6 +87,7 @@ html, body {
   margin: 0 auto;
   padding: 0;
   font-size: 0;
+  text-align: center;
   list-style-type: none;
   white-space: nowrap;
   overflow-x: auto;
