@@ -1,8 +1,5 @@
 <template>
-  <li
-    class="pager-item"
-    :class="classObjectPagerItemWrapper"
-  >
+  <li class="pager-item">
     <div
       class="pager-indicator"
       :class="classObjectPagerItem"
@@ -17,11 +14,6 @@
       image: Object,
     },
     computed: {
-      classObjectPagerItemWrapper: function() {
-        return {
-          'is-hide': this.$store.state.currentIdx === 0 && this.image.id >= this.$store.state.currentIdx + 6
-        }
-      },
       classObjectPagerItem: function() {
         return {
           'is-active': this.image.id === this.$store.state.currentIdx + 1,

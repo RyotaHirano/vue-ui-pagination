@@ -50,8 +50,8 @@
         let translateX = '0';
         console.log(this.$store.state.currentIdx + 3);
         console.log(this.$store.state.images.length);
-        if (this.$store.state.currentIdx + 3 <= this.$store.state.images.length ) {
-          translateX = `-${(this.$store.state.images.length - 3) * 32}px`;
+        if (this.$store.state.currentIdx + 3 >= this.$store.state.images.length ) {
+          translateX = `-${(this.$store.state.images.length - 6) * 32}px`;
         } else if (this.$store.state.currentIdx >= 3) {
           translateX = `-${(this.$store.state.currentIdx - 3) * 32}px`;
         } else {
