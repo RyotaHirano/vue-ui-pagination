@@ -16,5 +16,5 @@ yarn i
 yarn start
 
 # build for production with minification
-yarn tun build
+yarn run build
 ```
