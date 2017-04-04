@@ -1,7 +1,7 @@
 # vue ui pagination
 > vue, vuex, webpack, postcss
 
-### GitHub Pages
+### Demo
 https://ryotahirano.github.io/vue-ui-pagination/
 
 ---
