@@ -11,26 +11,26 @@ body {
   margin: 0 auto;
   padding: 0 30px;
 
-/*
----
-name: Heading
-category:
-  - mod/heading
-  - base
-tag:
-  - latest
-  - base
----
+  /*
+  ---
+  name: Heading
+  category:
+    - mod/heading
+    - base
+  tag:
+    - latest
+    - base
+  ---
 
-Heading styles.
+  Heading styles.
 
-* Base Heading style.
-* Use `h` tag.
+  * Base Heading style.
+  * Use `h` tag.
 
-```jade
-h1 Heading
-```
-*/
+  ```jade
+  h1 Heading
+  ```
+  */
   h1 {
     font-family: 'Raleway', sans-serif;
     margin: 15px 0;
