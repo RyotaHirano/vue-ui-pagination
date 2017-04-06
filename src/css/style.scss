@@ -27,8 +27,8 @@ Heading styles.
 * Base Heading style.
 * Use `h` tag.
 
-```html
-<h1>Heading</h1>
+```jade
+h1 Heading
 ```
 */
   h1 {
@@ -103,18 +103,14 @@ Pager styles.
 * Base Pager style.
 * Use `pager-item` class.
 
-```html
-<ul class="pager-inner">
-  <li class="pager-item">
-    <div class="pager-indicator is-active"></div>
-  </li>
-  <li class="pager-item">
-    <div class="pager-indicator"></div>
-  </li>
-  <li class="pager-item">
-    <div class="pager-indicator"></div>
-  </li>
-</ul>
+```jade
+.pager-inner
+  li.pager-item
+    .pager-indicator.is-active
+  li.pager-item
+    .pager-indicator
+  li.pager-item
+    .pager-indicator
 ```
 */
 .carousel-pager {
