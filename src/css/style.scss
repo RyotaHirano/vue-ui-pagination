@@ -87,31 +87,6 @@ Heading styles.
   }
 }
 
-.carousel-pager {
-  width: 192px;
-  height: 15px;
-  margin: 15px auto;
-  overflow: hidden;
-  z-index: 1;
-}
-
-.pager-wrapper {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.pager-inner {
-  margin: 0 auto;
-  padding: 0;
-  font-size: 0;
-  text-align: center;
-  list-style-type: none;
-  white-space: nowrap;
-  overflow-x: auto;
-  overflow-y: hidden;
-}
-
 /*
 ---
 name: Pager
@@ -142,6 +117,31 @@ Pager styles.
 </ul>
 ```
 */
+.carousel-pager {
+  width: 192px;
+  height: 15px;
+  margin: 15px auto;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.pager-wrapper {
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+.pager-inner {
+  margin: 0 auto;
+  padding: 0;
+  font-size: 0;
+  text-align: center;
+  list-style-type: none;
+  white-space: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
 .pager-item {
   width: 12px;
   height: 15px;
