@@ -11,6 +11,26 @@ body {
   margin: 0 auto;
   padding: 0 30px;
 
+/*
+---
+name: Heading
+category:
+  - mod/heading
+  - base
+tag:
+  - latest
+  - base
+---
+
+Heading styles.
+
+* Base Heading style.
+* Use `h` tag.
+
+```html
+<h1>Heading</h1>
+```
+*/
   h1 {
     font-family: 'Raleway', sans-serif;
     margin: 15px 0;
@@ -92,6 +112,36 @@ body {
   overflow-y: hidden;
 }
 
+/*
+---
+name: Pager
+category:
+  - mod/pager
+  - base
+tag:
+  - latest
+  - base
+---
+
+Pager styles.
+
+* Base Pager style.
+* Use `pager-item` class.
+
+```html
+<ul class="pager-inner">
+  <li class="pager-item">
+    <div class="pager-indicator is-active"></div>
+  </li>
+  <li class="pager-item">
+    <div class="pager-indicator"></div>
+  </li>
+  <li class="pager-item">
+    <div class="pager-indicator"></div>
+  </li>
+</ul>
+```
+*/
 .pager-item {
   width: 12px;
   height: 15px;
