@@ -6,7 +6,7 @@ import { resolve } from 'path'
 const rootResolve = pathname => resolve(__dirname, pathname);
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/js/main.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
     publicPath: "",
