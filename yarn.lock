@@ -47,14 +47,6 @@ acorn@^4.0.3, acorn@^4.0.4, acorn@~4.0.2:
   version "4.0.11"
   resolved "https://registry.yarnpkg.com/acorn/-/acorn-4.0.11.tgz#edcda3bd937e7556410d42ed5860f67399c794c0"
 
-aigis-marked@^0.2.1:
-  version "0.2.1"
-  resolved "https://registry.yarnpkg.com/aigis-marked/-/aigis-marked-0.2.1.tgz#536598928757b5514bb8bea5d75353f8ab12d1ff"
-  dependencies:
-    lodash "^4.5.1"
-    marked "^0.3.5"
-    prismjs "^1.5.1"
-
 ajv-keywords@^1.1.1:
   version "1.5.1"
   resolved "https://registry.yarnpkg.com/ajv-keywords/-/ajv-keywords-1.5.1.tgz#314dd0a4b3368fad3dfcdc54ede6171b886daf3c"
@@ -2618,27 +2610,6 @@ no-case@^2.2.0:
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-2.3.1.tgz#7aeba1c73a52184265554b7dc03baf720df80081"
   dependencies:
     lower-case "^1.1.1"
-
-node-aigis@^1.4.0:
-  version "1.4.0"
-  resolved "https://registry.yarnpkg.com/node-aigis/-/node-aigis-1.4.0.tgz#8beb812568fea2556768a1151528a20ed6fc88b1"
-  dependencies:
-    aigis-marked "^0.2.1"
-    bluebird "^2.9.14"
-    colors "^1.1.2"
-    detect-css-colors "^1.0.1"
-    ejs "^2.4.1"
-    fs-extra "^0.30.0"
-    glob "^7.0.3"
-    handlebars "^4.0.5"
-    jade "^1.9.2"
-    js-beautify "^1.5.10"
-    js-yaml "^3.3.0"
-    lodash "^3.5.0"
-    marked "^0.3.3"
-    moment "^2.10.2"
-    object-assign "^4.0.1"
-    yargs "^4.3.2"
 
 node-libs-browser@^2.0.0:
   version "2.0.0"
